@@ -1,0 +1,24 @@
+syntax = "proto3";
+package v1;
+
+message Aircraft {
+  string CallSign = 1;
+  float Heading = 2;
+  float Latitude = 3;
+  float Longitude = 4;
+  float Speed = 5;
+  float Frequency = 6;
+}
+
+message UpdateMessage {
+  string CallSign = 1;
+  Aircraft AircraftInfo = 2;
+}
+message RemoveMessage { string CallSign = 1; }
+message Response { string status = 1; }
+message MonitorMessage {}
+service WorldService {
+  rpc Update(UpdateMessage) returns (Response);
+  rpc Remove(RemoveMessage) returns (Response);
+  rpc Monitor(MonitorMessage) returns (stream Aircraft);
+}
