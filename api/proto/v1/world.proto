@@ -6,8 +6,9 @@ message Aircraft {
   float Heading = 2;
   float Latitude = 3;
   float Longitude = 4;
-  float Speed = 5;
-  float Frequency = 6;
+  float Elevation = 5;
+  float Speed = 6;
+  float Frequency = 7;
 }
 
 message UpdateMessage {
